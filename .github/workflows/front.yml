@@ -18,17 +18,15 @@ jobs:
           node-version: '16'
        # Installs HTMLHint locally to validate code quality
       - name: Install HTMLHint
-        run: npm install -g htmlhint
-        working-directory: frontend
+        run: npm install --global htmlhint
 
-      - name: Install frontend dependencies
-        working-directory: frontend
-        run: npm install
-
-      - name: Lint frontend
-        working-directory: frontend
-        run: npm run lint
-
+      - name: Lint frontend HTML
+        run: |
+          if ! find frontend -type f -name "*.html" | grep -q .; then
+            echo "No HTML files found in frontend/"
+            exit 1
+          fi
+          htmlhint "frontend/**/*.html"
       # Log in to Docker Hub using repository secrets
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
