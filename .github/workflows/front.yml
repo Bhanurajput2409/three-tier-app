@@ -51,4 +51,4 @@ jobs:
         with:
           context: ./frontend
           push: true
-          tags: ${{ vars.DOCKERHUB_USERNAME }}/frontend:latest
+          tags: bhanupratap1224/frontend:latest
