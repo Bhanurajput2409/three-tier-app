@@ -19,10 +19,15 @@ jobs:
        # Installs HTMLHint locally to validate code quality
       - name: Install HTMLHint
         run: npm install -g htmlhint
+        working-directory: frontend
 
-      # Lints all HTML files in the project. Customize the path if needed.
-      - name: Run HTML Hint
-        run: htmlhint "**/*.html"
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm install
+
+      - name: Lint frontend
+        working-directory: frontend
+        run: npm run lint
 
       # Log in to Docker Hub using repository secrets
       - name: Log in to Docker Hub
@@ -38,4 +43,3 @@ jobs:
           context: ./frontend
           push: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/frontend:latest
-          
