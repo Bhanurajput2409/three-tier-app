@@ -2,10 +2,8 @@
 
 name: CD
 on:
-  push:
-    branches:
-        - main
-    workflow_dispatch:
+  workflow_call:
+    workflows: ["front.yml"]
 
 jobs:
   deploy:
