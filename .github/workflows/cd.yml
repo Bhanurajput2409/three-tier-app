@@ -13,8 +13,6 @@ jobs:
       - name: Checkout Source Code
         uses: actions/checkout@v4
 
-      - name: Copy Example Env to main env
-        run: cp .env .env
 
       # Step 2: Build and run the app using Docker Compose
       - name: Deploy with Docker Compose
