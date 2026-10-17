@@ -5,6 +5,7 @@ on:
   push:
     branches:
         - main
+    workflow_dispatch:
 
 jobs:
   deploy:
@@ -20,4 +21,4 @@ jobs:
         run: |
           docker compose down --remove-orphans
           docker compose up --build -d
-          
+
