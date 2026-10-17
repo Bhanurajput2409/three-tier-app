@@ -3,7 +3,6 @@
 name: CD
 on:
   workflow_call:
-    workflows: ["front.yml"]
 
 jobs:
   deploy:

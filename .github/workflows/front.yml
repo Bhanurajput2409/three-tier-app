@@ -88,7 +88,7 @@ jobs:
           push: true
           tags: bhanupratap1224/backend:latest
 
-      deploy:
+  deploy:
         needs: [frontend,backend]
         uses: ./.github/workflows/cd.yml
         secrets: inherit   
